@@ -135,3 +135,30 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2026-03-13 21:14:41
+
+-- ==============================
+-- Example Queries for the Project
+-- ==============================
+
+-- Show all students
+SELECT * FROM student;
+
+-- Show all faculty
+SELECT * FROM faculty;
+
+-- Show all courses
+SELECT * FROM course;
+
+-- Show student enrollment
+SELECT * FROM enrollment;
+
+-- Show student with course name
+SELECT s.name, c.course_name
+FROM student s
+JOIN enrollment e ON s.student_id = e.student_id
+JOIN course c ON e.course_id = c.course_id;
+
+-- Show course with faculty name
+SELECT c.course_name, f.faculty_name
+FROM course c
+JOIN faculty f ON c.faculty_id = f.faculty_id;
